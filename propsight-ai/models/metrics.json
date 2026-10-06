@@ -1,0 +1,128 @@
+{
+  "trained_at": "2026-10-02T14:44:16+00:00",
+  "selected_model": "Gradient Boosting",
+  "selection_rule": "lowest RMSE on the validation split",
+  "models": {
+    "Linear Regression": {
+      "validation": {
+        "MAE": 381.331181012748,
+        "RMSE": 500.76660884463354,
+        "R2": 0.816335587628368
+      },
+      "test": {
+        "MAE": 351.02614908026374,
+        "RMSE": 463.9242904473644,
+        "R2": 0.8267468712297003
+      }
+    },
+    "Random Forest": {
+      "validation": {
+        "MAE": 391.2265555894312,
+        "RMSE": 502.50380322867977,
+        "R2": 0.8150590879490177
+      },
+      "test": {
+        "MAE": 339.81953979674637,
+        "RMSE": 441.0084799878645,
+        "R2": 0.843440025195097
+      }
+    },
+    "Gradient Boosting": {
+      "validation": {
+        "MAE": 378.80837021382973,
+        "RMSE": 488.1112830561603,
+        "R2": 0.8255013857211152
+      },
+      "test": {
+        "MAE": 338.4193205144812,
+        "RMSE": 452.74865679374057,
+        "R2": 0.8349934428171817
+      }
+    },
+    "XGBoost": {
+      "validation": {
+        "MAE": 398.3565368652344,
+        "RMSE": 514.3747114215472,
+        "R2": 0.8062180280685425
+      },
+      "test": {
+        "MAE": 348.7426452636719,
+        "RMSE": 466.1042835299843,
+        "R2": 0.8251148462295532
+      }
+    }
+  },
+  "n_records": 1498,
+  "n_train": 1048,
+  "n_validation": 225,
+  "n_test": 225,
+  "cleaning": {
+    "rows_loaded": 1500,
+    "dropped": {
+      "invalid coordinates": 1,
+      "invalid area": 1
+    },
+    "fixed": {
+      "price_per_sqft recomputed from price/area (mismatch > 5%)": 1
+    },
+    "missing_values_before_imputation": {
+      "schools_nearby": 4,
+      "metro_distance_km": 5,
+      "commercial_score": 3
+    },
+    "rows_clean": 1498
+  },
+  "uses_synthetic_demo_data": true,
+  "interval": {
+    "method": "10th/90th percentile of actual/predicted ratio on the held-out test set (about 80% of test properties fell inside)",
+    "ratio_low": 0.8945251879789858,
+    "ratio_high": 1.1356240650573692,
+    "n": 225
+  },
+  "feature_importance": {
+    "area_sqft": 0.03926894469907314,
+    "schools_nearby": 0.004042227175545331,
+    "hospitals_nearby": 0.003797575514948166,
+    "markets_nearby": 0.004365676387666829,
+    "malls_nearby": 0.0032504333712767017,
+    "parks_nearby": 0.002075206284352173,
+    "banks_nearby": 0.003116261695347547,
+    "restaurants_nearby": 0.007474498300201345,
+    "metro_distance_km": 0.021062501184353682,
+    "railway_distance_km": 0.015721952533887397,
+    "highway_distance_km": 0.012630303400576526,
+    "major_road_distance_km": 0.03036350099120007,
+    "airport_distance_km": 0.008269806268592484,
+    "commercial_score": 0.14266301528131126,
+    "development_score": 0.13606957067137154,
+    "local_average_price": 0.5658285262402959
+  },
+  "feature_group_importance": {
+    "Location / Historical Market Data": 0.5658285262402959,
+    "Commercial Development": 0.2787325859526828,
+    "Transport": 0.045054259986833566,
+    "Connectivity": 0.042993804391776594,
+    "Property Size": 0.03926894469907314,
+    "Nearby Facilities": 0.028121878729338093
+  },
+  "importance_note": "Model feature importance (how much the model relies on a feature), not causal impact.",
+  "features": [
+    "area_sqft",
+    "schools_nearby",
+    "hospitals_nearby",
+    "markets_nearby",
+    "malls_nearby",
+    "parks_nearby",
+    "banks_nearby",
+    "restaurants_nearby",
+    "metro_distance_km",
+    "railway_distance_km",
+    "highway_distance_km",
+    "major_road_distance_km",
+    "airport_distance_km",
+    "commercial_score",
+    "development_score",
+    "local_average_price"
+  ],
+  "data_path": "data\\property_data.csv"
+}

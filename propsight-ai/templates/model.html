@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Model Performance | PropSight AI{% endblock %}
+{% block page %}model{% endblock %}
+{% block content %}
+<section class="wrap block">
+  <h1 class="page-title">Model Performance</h1>
+  <p class="msg" id="modelError" role="alert" hidden></p>
+  <div id="modelBody"><p class="loading">Loading metrics…</p></div>
+</section>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Property Valuation | PropSight AI{% endblock %}
+{% block page %}valuation{% endblock %}
+{% block content %}
+<section class="wrap block">
+  <h1 class="page-title">Property Valuation</h1>
+  <div class="card valuation">
+    <div class="step" id="step1">
+      <div class="step-head"><span class="badge">1</span><h2>Select Property Location</h2></div>
+      <div class="searchbar">
+        <label class="sr" for="searchInput">Search location</label>
+        <input id="searchInput" type="search" placeholder="Search a locality, landmark or address, e.g. Kalyanpur, Kanpur" autocomplete="off">
+        <button class="btn" id="searchBtn" type="button">Search</button>
+        <button class="btn ghost" id="locateBtn" type="button">Use my location</button>
+      </div>
+      <ul id="searchResults" class="results" hidden></ul>
+      <div id="map" class="map" role="application" aria-label="Map. Click to place the property marker."></div>
+      <p class="map-hint" id="mapHint">Click the map to place the marker, or drag the map and search.</p>
+      <div class="coords" aria-live="polite">
+        <div><span>Selected Location</span><strong id="selName">Nothing selected yet</strong></div>
+        <div><span>Latitude</span><strong id="selLat">–</strong></div>
+        <div><span>Longitude</span><strong id="selLng">–</strong></div>
+        <button class="btn primary" id="confirmBtn" type="button" disabled>Confirm Location</button>
+      </div>
+      <p class="msg" id="msg1" role="alert" hidden></p>
+      <div id="analysis" class="analysis" hidden></div>
+    </div>
+
+    <div class="step locked" id="step2">
+      <div class="step-head"><span class="badge">2</span><h2>Property Area</h2></div>
+      <div class="area-row">
+        <label for="areaInput">Property Area (sq.ft)</label>
+        <input id="areaInput" type="number" inputmode="decimal" min="1" step="any" placeholder="1200" disabled>
+        <button class="btn primary big" id="predictBtn" type="button" disabled>Predict Property Value</button>
+      </div>
+      <p class="msg" id="msg2" role="alert" hidden></p>
+    </div>
+  </div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/map.js') }}"></script>
+<script src="{{ url_for('static', filename='js/valuation.js') }}"></script>
+{% endblock %}

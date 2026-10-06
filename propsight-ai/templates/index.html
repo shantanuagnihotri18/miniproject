@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block page %}home{% endblock %}
+{% block content %}
+<section class="hero">
+  <svg class="contours" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g fill="none" stroke="#2E7D63" stroke-opacity=".28" stroke-width="1.2">
+      <path d="M-20 420C120 360 200 440 330 380S560 300 820 360"/><path d="M-20 380C130 310 220 400 340 335S570 250 820 315"/>
+      <path d="M-20 340C140 260 240 360 350 290S580 200 820 270"/><path d="M-20 300C150 210 260 320 360 245S590 150 820 225"/>
+      <path d="M-20 260C160 160 280 280 370 200S600 100 820 180"/><path d="M-20 460C110 410 190 480 320 430S550 350 820 405"/>
+      <path d="M-20 500C100 460 180 520 310 480S540 400 820 450"/>
+    </g>
+  </svg>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1>Know Your Property's Market Value</h1>
+      <p class="lead">Select your property location, enter the area, and let AI estimate its market value.</p>
+      <p class="sub">AI-Powered Property Valuation &amp; Location Intelligence</p>
+      <a class="btn primary big" href="{{ url_for('valuation') }}">Start Valuation</a>
+    </div>
+    <figure class="parcel" aria-label="Illustration: a plot on a map with its area and estimated rate">
+      <svg viewBox="0 0 420 360" role="img">
+        <g stroke="#12212B" stroke-width="1.5" fill="none">
+          <path class="plot-line" d="M70 250 L90 110 L300 90 L340 230 Z" fill="#E8A31722"/>
+        </g>
+        <g stroke="#12212B" stroke-width="1" fill="none" opacity=".7"><path d="M70 285H340M70 278v14M340 278v14"/><path d="M370 90V230M363 90h14M363 230h14"/></g>
+        <text x="205" y="306" text-anchor="middle" class="dim">40 ft</text>
+        <text x="392" y="165" text-anchor="middle" class="dim" transform="rotate(90 392 165)">30 ft</text>
+        <text x="190" y="178" text-anchor="middle" class="plot-area">1,200 sq.ft</text>
+        <g class="pin"><path d="M205 50c-14 0-24 10-24 23 0 17 24 41 24 41s24-24 24-41c0-13-10-23-24-23z" fill="#E8A317" stroke="#12212B" stroke-width="2"/><circle cx="205" cy="73" r="8" fill="#12212B"/></g>
+      </svg>
+      <figcaption>Pin the plot. Add the area. Get a rate per sq.ft and a total.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="wrap block" id="how">
+  <h2>How it works</h2>
+  <ol class="flow">
+    <li><h3>Pin the location</h3><p>Search or click on the map. No coordinates to type.</p></li>
+    <li><h3>Enter the area</h3><p>Only the size in square feet. Nothing else is needed.</p></li>
+    <li><h3>Location analysis</h3><p>We measure nearby schools, hospitals, markets, malls, parks, banks, and the distance to roads, rail, metro and airport.</p></li>
+    <li><h3>Model prediction</h3><p>A model trained on historical property prices predicts the rate per sq.ft, then multiplies it by your area.</p></li>
+    <li><h3>Result you can read</h3><p>Rate, total value, an uncertainty range, and the factors the model relied on.</p></li>
+  </ol>
+</section>
+
+<section class="wrap block split" id="about">
+  <div>
+    <h2>About PropSight AI</h2>
+    <p>PropSight AI is a prototype that turns a map pin into a market-value estimate. It is built with plain HTML, CSS and JavaScript on the front end, and Flask, scikit-learn and SQLite on the back end.</p>
+    <p>An estimate is only as good as the price data behind it. The bundled dataset is synthetic demo data, labelled as such everywhere it matters. Load real, local transaction or listing data from the admin page and retrain to get meaningful numbers.</p>
+  </div>
+  <div class="note-card">
+    <h3>What the estimate is not</h3>
+    <p>It is not a guaranteed selling price, a bank valuation, or legal advice. Condition, legal status, construction quality and negotiation all move real prices.</p>
+  </div>
+</section>
+{% endblock %}

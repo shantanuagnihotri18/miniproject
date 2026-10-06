@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Valuation Result | PropSight AI{% endblock %}
+{% block page %}result{% endblock %}
+{% block content %}
+<section class="wrap block" id="resultRoot" data-id="{{ prediction_id }}">
+  <p class="loading" id="resultLoading">Loading your valuation…</p>
+  <p class="msg" id="resultError" role="alert" hidden></p>
+  <div id="resultBody" hidden></div>
+</section>
+{% endblock %}

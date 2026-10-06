@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Data Admin | PropSight AI{% endblock %}
+{% block page %}admin{% endblock %}
+{% block content %}
+<section class="wrap block">
+  <h1 class="page-title">Data Admin</h1>
+  <p class="note">Local prototype admin. {% if token_required %}An admin token is required for changes.{% else %}No login is set. Set ADMIN_TOKEN in .env before exposing this anywhere other than your own machine.{% endif %}</p>
+  {% if token_required %}<div class="field"><label for="adminToken">Admin token</label><input id="adminToken" type="password" autocomplete="off"></div>{% endif %}
+  <div class="grid3" id="adminStats"><p class="loading">Loading…</p></div>
+  <div class="card pad">
+    <h2>Upload property dataset</h2>
+    <p>CSV with at least latitude, longitude, area_sqft and price or price_per_sqft. Missing location-feature columns are computed automatically. The previous file is backed up.</p>
+    <input id="csvFile" type="file" accept=".csv"> <button class="btn" id="uploadBtn" type="button">Upload CSV</button>
+    <p class="msg" id="uploadMsg" role="status" hidden></p>
+  </div>
+  <div class="card pad">
+    <h2>Retrain model</h2>
+    <p>Trains all candidate models on the current dataset and keeps the one with the lowest validation RMSE.</p>
+    <button class="btn primary" id="retrainBtn" type="button">Retrain model</button>
+    <p class="msg" id="retrainMsg" role="status" hidden></p>
+  </div>
+  <p><a href="{{ url_for('history_page') }}">View prediction history</a> · <a href="{{ url_for('model_page') }}">View model metrics</a></p>
+</section>
+{% endblock %}
