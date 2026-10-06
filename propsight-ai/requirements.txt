@@ -6,7 +6,8 @@ joblib>=1.3
 python-dotenv>=1.0
 xgboost>=2.0   # optional: training skips XGBoost automatically if it cannot be imported
 
-miniproject/
- └─ propsight-ai/
-     ├─ app.py
-     ├─ requirements.txt
+miniproject
+ └── propsight-ai
+      ├── app.py
+      ├── requirements.txt
+      └── README.md
